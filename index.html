@@ -56,9 +56,14 @@
       background: rgba(245,245,247,0.74);
       border-bottom: 1px solid var(--line);
     }
-  .topbar-inner{
-  ...
-  min-height: 78px;      /* трохи більше, щоб 68px лого не тіснилось */
+.topbar-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 18px;
+
+  min-height: 92px;     /* було ~74–78 */
+  padding: 14px 0;      /* було 10px */
 }
 
     .brand{
@@ -84,14 +89,14 @@
       flex-direction:column;
       gap: 2px;
     }
-    .brand-title strong{
-      font-size: 15px;
-      letter-spacing: -0.2px;
-    }
-    .brand-title span{
-      font-size: 12px;
-      color: var(--muted);
-    }
+   .brand-title strong{
+  font-size: 17px;      /* було 15 */
+  letter-spacing: -0.2px;
+}
+.brand-title span{
+  font-size: 13px;      /* було 12 */
+  color: var(--muted);
+}
 
     .nav{
       display:flex;
@@ -100,32 +105,33 @@
       flex-wrap: wrap;
       justify-content: flex-end;
     }
-    .nav a{
-      text-decoration:none;
-      color: var(--muted);
-      font-size: 13px;
-      padding: 8px 12px;
-      border-radius: 12px;
-      border: 1px solid transparent;
-    }
-    .nav a:hover{
-      color: var(--text);
-      background: rgba(255,255,255,0.65);
-      border-color: var(--line);
-    }
+  .nav a{
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 14px;          /* було 13 */
+  padding: 10px 14px;       /* було 8px 12px */
+  border-radius: 14px;      /* було 12px */
+  border: 1px solid transparent;
+}
 
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.65);
-      color: var(--muted);
-      font-size: 13px;
-      text-decoration:none;
-    }
+.nav a:hover{
+  color: var(--text);
+  background: rgba(255,255,255,0.50);   /* було 0.65 */
+  border-color: rgba(0,0,0,0.06);       /* м’якше, ніж var(--line) */
+}
+
+.pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;       /* було 8px 12px */
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.65);
+  color: var(--muted);
+  font-size: 14px;          /* було 13 */
+  text-decoration: none;
+}
 
     /* Hero */
     .hero{
