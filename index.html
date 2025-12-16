@@ -2,156 +2,185 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Onopriienko Automation Solutions LLC</title>
-  <meta name="description" content=" Industrial automation, commissioning, and troubleshooting for food and beverage manufacturers." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Industrial automation, commissioning, and troubleshooting for food and beverage manufacturers." />
 
   <style>
-    : root{
-      --bg:#0b0f17;
-      --card:#0f1624;
-      --muted:#a7b1c2;
-      --text:#eef2f7;
-      --line: rgba(255,255,255,0.10);
-      --accent:#ffffff;
-      --chip: rgba(255,255,255,0.08);
-      --shadow: 0 10px 30px rgba(0,0,0,0.35);
-      --radius:16px;
-      --max: 1060px;
+    :root{
+      /* iOS-like neutrals */
+      --bg: #F5F5F7;
+      --card: rgba(255,255,255,0.78);
+      --cardSolid: #FFFFFF;
+      --text: #111111;
+      --muted: rgba(17,17,17,0.62);
+      --line: rgba(17,17,17,0.10);
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+      --shadowSoft: 0 6px 18px rgba(0,0,0,0.06);
+      --radius: 18px;
+      --max: 1120px;
+      --accent: #007AFF; /* iOS blue */
     }
 
-    *{ box-sizing:border-box; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+
     body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(900px 500px at 10% 10%, rgba(255,255,255,0.08), transparent 60%),
-        radial-gradient(800px 450px at 90% 15%, rgba(255,255,255,0.06), transparent 55%),
-        var(--bg);
+      margin: 0;
       color: var(--text);
+      background: radial-gradient(900px 500px at 10% 10%, rgba(0,122,255,0.12), transparent 55%),
+                  radial-gradient(900px 550px at 90% 15%, rgba(88,86,214,0.10), transparent 60%),
+                  var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       line-height: 1.55;
     }
 
-    a{ color: var(--text); }
-    a:hover{ opacity: 0.9; }
+    a { color: inherit; }
+    a:hover { opacity: 0.9; }
 
-    .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 22px;
+    }
 
-    /* Top bar */
+    /* Topbar */
     .topbar{
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(10px);
-      background: rgba(11,15,23,0.72);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background: rgba(245,245,247,0.74);
       border-bottom: 1px solid var(--line);
     }
     .topbar-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding: 20px 0;        /* ↑ більше повітря */
-  min-height: 72px;       /* ← КЛЮЧОВЕ */
-  gap: 16px;
-}
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
+      min-height: 74px;
+      padding: 10px 0;
+    }
+
     .brand{
       display:flex;
       align-items:center;
-      gap:12px;
-      text-decoration:none;
+      gap: 14px;
+      text-decoration: none;
+      min-width: 260px;
     }
-    .mark{
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-      display:grid;
-      place-items:center;
+
+    .brand img{
+      height: 54px;   /* BIGGER LOGO */
+      width: auto;
+      display:block;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.8);
       border: 1px solid var(--line);
-      background: rgba(255,255,255,0.04);
-      font-weight: 800;
-      letter-spacing: -0.5px;
+      padding: 6px;
+      box-shadow: var(--shadowSoft);
     }
+
     .brand-title{
       display:flex;
       flex-direction:column;
-      gap:2px;
+      gap: 2px;
     }
     .brand-title strong{
-      font-size: 14px;
-      letter-spacing: 0.2px;
+      font-size: 15px;
+      letter-spacing: -0.2px;
     }
     .brand-title span{
       font-size: 12px;
       color: var(--muted);
     }
-    nav{
+
+    .nav{
       display:flex;
-      gap:14px;
       align-items:center;
-      flex-wrap:wrap;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
-    nav a{
+    .nav a{
       text-decoration:none;
       color: var(--muted);
       font-size: 13px;
-      padding: 6px 10px;
-      border-radius: 10px;
+      padding: 8px 12px;
+      border-radius: 12px;
+      border: 1px solid transparent;
     }
-    nav a:hover{
+    .nav a:hover{
       color: var(--text);
-      background: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.65);
+      border-color: var(--line);
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.65);
+      color: var(--muted);
+      font-size: 13px;
+      text-decoration:none;
     }
 
     /* Hero */
     .hero{
-      padding: 64px 0 26px;
+      padding: 44px 0 18px;
     }
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap: 22px;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 18px;
       align-items: stretch;
     }
-    .panel{
+
+    .card{
       border: 1px solid var(--line);
-      background: rgba(255,255,255,0.04);
+      background: var(--card);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
     .hero-main{
-      padding: 34px;
+      padding: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.65));
     }
     .kicker{
       display:inline-flex;
-      gap:10px;
       align-items:center;
-      padding: 6px 10px;
+      gap: 10px;
+      padding: 8px 12px;
       border-radius: 999px;
-      background: var(--chip);
       border: 1px solid var(--line);
+      background: rgba(255,255,255,0.75);
       color: var(--muted);
-      font-size: 12px;
-      margin-bottom: 16px;
+      font-size: 13px;
+      margin-bottom: 14px;
     }
     h1{
-      margin: 0 0 14px;
-      font-size: 44px;
-      line-height: 1.1;
+      margin: 0 0 12px;
+      font-size: 46px;
+      line-height: 1.08;
       letter-spacing: -1px;
     }
     .lead{
-      margin: 0 0 22px;
+      margin: 0 0 18px;
       color: var(--muted);
       font-size: 16px;
-      max-width: 62ch;
+      max-width: 68ch;
     }
+
     .cta-row{
       display:flex;
-      gap:12px;
+      gap: 10px;
       flex-wrap:wrap;
       align-items:center;
     }
@@ -159,163 +188,178 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:10px;
-      padding: 12px 16px;
-      border-radius: 12px;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
       border: 1px solid var(--line);
       text-decoration:none;
-      font-weight: 700;
+      font-weight: 600;
       font-size: 14px;
-      cursor:pointer;
+      background: rgba(255,255,255,0.75);
+      box-shadow: var(--shadowSoft);
       transition: transform 0.15s ease;
     }
     .btn:hover{ transform: translateY(-1px); }
     .btn-primary{
       background: var(--accent);
-      color: #0b0f17;
-      border-color: rgba(255,255,255,0.35);
+      color: #fff;
+      border-color: rgba(0,122,255,0.35);
     }
     .btn-ghost{
-      background: rgba(255,255,255,0.06);
       color: var(--text);
     }
 
     .hero-side{
-      padding: 22px;
+      padding: 18px;
       display:flex;
       flex-direction:column;
       gap: 14px;
-      justify-content: space-between;
     }
     .side-title{
+      margin: 0 0 10px;
       font-size: 13px;
       color: var(--muted);
-      margin: 0 0 10px;
     }
     .chips{
       display:flex;
       flex-wrap:wrap;
-      gap:8px;
+      gap: 8px;
     }
     .chip{
-      font-size: 12px;
-      color: var(--text);
-      background: rgba(255,255,255,0.06);
-      border: 1px solid var(--line);
-      padding: 7px 10px;
+      padding: 8px 10px;
       border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.75);
+      color: rgba(17,17,17,0.72);
+      font-size: 12px;
       white-space: nowrap;
     }
-    .side-box{
+    .side-note{
       border-top: 1px solid var(--line);
-      padding-top: 14px;
+      padding-top: 12px;
       color: var(--muted);
       font-size: 13px;
     }
 
     /* Sections */
     .section{
-      padding: 26px 0;
+      padding: 18px 0;
     }
     .section h2{
-      margin: 0 0 14px;
+      margin: 0 0 12px;
       font-size: 18px;
       letter-spacing: -0.2px;
     }
+
     .grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
     }
-    .card{
-      padding: 18px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.04);
+    .mini{
+      padding: 16px;
+      background: var(--cardSolid);
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      min-height: 120px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadowSoft);
     }
-    .card strong{
+    .mini strong{
       display:block;
+      margin-bottom: 6px;
       font-size: 14px;
-      margin-bottom: 8px;
     }
-    .card p{
-      margin:0;
-      font-size: 13px;
+    .mini p{
+      margin: 0;
       color: var(--muted);
+      font-size: 13px;
     }
 
     .list{
-      margin:0;
+      margin: 12px 0 0;
       padding-left: 18px;
       color: var(--muted);
       font-size: 14px;
     }
     .list li{ margin: 8px 0; }
 
-    /* Contact */
-    .contact{
+    /* Experience & Contact */
+    .panel{
+      padding: 18px;
+      background: var(--cardSolid);
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadowSoft);
+    }
+
+    .contact-row{
       display:flex;
       flex-wrap:wrap;
       gap: 12px;
       align-items:center;
       justify-content:space-between;
     }
-    .contact a{
+    .contact-row a{
+      color: var(--accent);
       text-decoration:none;
-      color: var(--text);
-      border-bottom: 1px dashed rgba(255,255,255,0.25);
+      font-weight: 600;
     }
 
     footer{
-      border-top: 1px solid var(--line);
-      margin-top: 34px;
-      padding: 22px 0 34px;
+      margin-top: 26px;
+      padding: 20px 0 34px;
       color: var(--muted);
       font-size: 12px;
+      border-top: 1px solid var(--line);
     }
 
     /* Responsive */
-    @media (max-width: 900px){
+    @media (max-width: 980px){
       .hero-grid{ grid-template-columns: 1fr; }
       h1{ font-size: 36px; }
       .grid{ grid-template-columns: 1fr; }
-      .hero-main{ padding: 26px; }
+      .brand img{ height: 48px; }
+      .pill{ display:none; } /* keep header clean on mobile */
+    }
+
+    @media (max-width: 560px){
+      .brand-title span{ display:none; }
+      .nav a{ padding: 8px 10px; }
+      h1{ font-size: 32px; }
     }
   </style>
 </head>
 
 <body>
-  <div class="topbar">
+  <!-- Topbar -->
+  <header class="topbar">
     <div class="wrap topbar-inner">
       <a class="brand" href="#top">
- <img src="oas-logo.png"
-     alt="Onopriienko Automation Solutions LLC"
-     style="height:48px; width:auto; display:block;">
-       <div class="brand-title">
+        <!-- CHANGE THIS filename to your actual logo file in the repo -->
+        <img src="oas-logo" alt="OAS logo">
+        <div class="brand-title">
           <strong>Onopriienko Automation Solutions LLC</strong>
           <span>Industrial automation & commissioning</span>
         </div>
       </a>
 
-     <nav style="display:flex; gap:14px; align-items:center; flex-wrap:wrap;">
-  <a href="#services">Services</a>
-  <a href="#experience">Experience</a>
-  <a href="#contact">Contact</a>
-  <a href="mailto:dmytro.onopriienko@gmail.com" style="color: var(--text); opacity:0.9; border:1px solid var(--line); padding:6px 10px; border-radius:10px; text-decoration:none;">
-    dmytro.onopriienko@gmail.com
-  </a>
-</nav>
+      <nav class="nav">
+        <a href="#services">Services</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+        <a class="pill" href="mailto:dmytro.onopriienko@gmail.com">dmytro.onopriienko@gmail.com</a>
+      </nav>
     </div>
-  </div>
+  </header>
 
   <main id="top" class="wrap">
+    <!-- Hero -->
     <section class="hero">
       <div class="hero-grid">
-        <div class="panel hero-main">
+        <div class="card hero-main">
           <div class="kicker">Rockwell • Siemens • Food & Beverage • Packaging</div>
+
           <h1>Industrial Automation & Commissioning for Food and Beverage Manufacturers</h1>
+
           <p class="lead">
             PLC programming, line upgrades, troubleshooting, and remote support.
             Practical engineering focused on stable production and fast recovery when things break.
@@ -327,7 +371,7 @@
           </div>
         </div>
 
-        <aside class="panel hero-side">
+        <aside class="card hero-side">
           <div>
             <p class="side-title">Core capabilities</p>
             <div class="chips">
@@ -340,7 +384,7 @@
             </div>
           </div>
 
-          <div class="side-box">
+          <div class="side-note">
             Austin, TX • On-site & worldwide<br/>
             Response-focused support for production teams
           </div>
@@ -348,18 +392,20 @@
       </div>
     </section>
 
+    <!-- Services -->
     <section id="services" class="section">
       <h2>Services</h2>
+
       <div class="grid">
-        <div class="card">
+        <div class="mini">
           <strong>PLC Programming</strong>
           <p>Rockwell and Siemens programming, modifications, and structured troubleshooting.</p>
         </div>
-        <div class="card">
+        <div class="mini">
           <strong>Commissioning & Startup</strong>
           <p>On-site support for new lines, upgrades, FAT/SAT, and stable ramp-up.</p>
         </div>
-        <div class="card">
+        <div class="mini">
           <strong>Line Upgrades</strong>
           <p>Retrofits, controls modernization, network cleanup, and performance optimization.</p>
         </div>
@@ -374,24 +420,26 @@
       </ul>
     </section>
 
+    <!-- Experience -->
     <section id="experience" class="section">
       <h2>Experience</h2>
-      <div class="panel" style="padding:18px;">
+      <div class="panel">
         <p style="margin:0; color: var(--muted); font-size:14px;">
-         Hands-on experience with food, beverage, and packaging production lines: commissioning, troubleshooting, and controls upgrades in production-critical environments. 
-          Familiar with high-speed packaging equipment, CIP/utility interfaces, flow/density measurement (including Coriolis), and plant networks (EtherNet/IP). 
-          Focused on stable long-term operation and fast recovery when downtime happens.
+          Hands-on experience with food, beverage, and packaging production lines: commissioning,
+          troubleshooting, and controls upgrades in production-critical environments.
+          Familiar with high-speed packaging equipment, CIP/utility interfaces, flow/density measurement (including Coriolis),
+          and plant networks (EtherNet/IP). Focused on stable long-term operation and fast recovery when downtime happens.
         </p>
       </div>
     </section>
 
+    <!-- Contact -->
     <section id="contact" class="section">
       <h2>Contact</h2>
-      <div class="panel" style="padding:18px;">
-        <div class="contact">
+      <div class="panel">
+        <div class="contact-row">
           <div style="color: var(--muted); font-size:14px;">
-            Email:
-            <a href="mailto:dmytro.onopriienko@gmail.com">dmytro.onopriienko@gmail.com</a>
+            Email: <a href="mailto:dmytro.onopriienko@gmail.com">dmytro.onopriienko@gmail.com</a>
           </div>
           <a class="btn btn-primary" href="mailto:dmytro.onopriienko@gmail.com">Send email</a>
         </div>
@@ -399,7 +447,7 @@
     </section>
 
     <footer>
-      © 2025 Onopriienko Automation Solutions LLC • Proprietary & Confidential
+      © 2025 Onopriienko Automation Solutions LLC
     </footer>
   </main>
 </body>
