@@ -56,14 +56,10 @@
       background: rgba(245,245,247,0.74);
       border-bottom: 1px solid var(--line);
     }
-    .topbar-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 16px;
-      min-height: 74px;
-      padding: 10px 0;
-    }
+  .topbar-inner{
+  ...
+  min-height: 78px;      /* трохи більше, щоб 68px лого не тіснилось */
+}
 
     .brand{
       display:flex;
@@ -73,17 +69,16 @@
       min-width: 260px;
     }
 
-    .brand img{
-      height: 54px;   /* BIGGER LOGO */
-      width: auto;
-      display:block;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.8);
-      border: 1px solid var(--line);
-      padding: 6px;
-      box-shadow: var(--shadowSoft);
-    }
-
+   .brand img{
+  height: 68px;          /* було 54 */
+  width: auto;
+  display:block;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid var(--line);
+  padding: 4px;          /* було 6 — зменшуємо, щоб лого виглядало більшим */
+  box-shadow: var(--shadowSoft);
+}
     .brand-title{
       display:flex;
       flex-direction:column;
