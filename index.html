@@ -84,23 +84,28 @@
   padding: 4px;          /* було 6 — зменшуємо, щоб лого виглядало більшим */
   box-shadow: var(--shadowSoft);
 }
-    .brand-title{
-      display:flex;
-      flex-direction:column;
-      gap: 2px;
-    }
-   .brand-title strong{
-  font-size: 17px;      /* було 15 */
+  .brand-title{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+ .brand-title strong{
+  font-size: 19px;          /* помітно, але не кричить */
+  font-weight: 600;
+  line-height: 1.25;
   letter-spacing: -0.2px;
+  color: var(--text);
 }
 .brand-title span{
-  font-size: 13px;      /* було 12 */
+  display: block;
+  margin-top: 3px;
+  font-size: 14.5px;        /* читабельно, не дрібно */
+  line-height: 1.3;
   color: var(--muted);
 }
-
     .nav{
-      display:flex;
-      align-items:center;
+      display: flex;
+      align-items: center;
       gap: 10px;
       flex-wrap: wrap;
       justify-content: flex-end;
@@ -327,6 +332,11 @@
       .nav a{ padding: 8px 10px; }
       h1{ font-size: 32px; }
     }
+    .logo-img{
+  width: 88px;
+  height: auto;
+  flex-shrink: 0;
+}
   </style>
 </head>
 
@@ -336,11 +346,12 @@
     <div class="wrap topbar-inner">
       <a class="brand" href="#top">
         <!-- CHANGE THIS filename to your actual logo file in the repo -->
-        <img src="oas-logo.png.png" alt="OAS logo.png.png">
-        <div class="brand-title">
-          <strong>Onopriienko Automation Solutions LLC</strong>
-          <span>Industrial automation & commissioning</span>
-        </div>
+       <img class="logo-img" src="oas-logo.png.png" alt="OAS logo">
+<div class="brand-title">
+  <strong>Onopriienko Automation Solutions LLC</strong>
+  <span>Industrial automation & commissioning</span>
+</div>
+
       </a>
 
       <nav class="nav">
