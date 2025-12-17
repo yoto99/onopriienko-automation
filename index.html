@@ -74,16 +74,18 @@
       min-width: 260px;
     }
 
-   .brand img{
-  height: 68px;          /* було 54 */
+.logo-img{
+  height: 84px;              /* ОЦЕ робить його реально більшим */
   width: auto;
   display:block;
+  flex-shrink: 0;
   border-radius: 14px;
   background: rgba(255,255,255,0.9);
   border: 1px solid var(--line);
-  padding: 4px;          /* було 6 — зменшуємо, щоб лого виглядало більшим */
+  padding: 4px;
   box-shadow: var(--shadowSoft);
 }
+
   .brand-title{
   display: flex;
   flex-direction: column;
@@ -319,24 +321,21 @@
     }
 
     /* Responsive */
-    @media (max-width: 980px){
-      .hero-grid{ grid-template-columns: 1fr; }
-      h1{ font-size: 36px; }
-      .grid{ grid-template-columns: 1fr; }
-      .brand img{ height: 48px; }
-      .pill{ display:none; } /* keep header clean on mobile */
-    }
+   @media (max-width: 980px){
+  .hero-grid{ grid-template-columns: 1fr; }
+  h1{ font-size: 36px; }
+  .grid{ grid-template-columns: 1fr; }
+  .logo-img{ height: 92px; }     /* мобільна версія */
+  .pill{ display:none; }
+}
+
 
     @media (max-width: 560px){
       .brand-title span{ display:none; }
       .nav a{ padding: 8px 10px; }
       h1{ font-size: 32px; }
     }
-    .logo-img{
-  width: 108px;
-  height: auto;
-  flex-shrink: 0;
-}
+ 
   </style>
 </head>
 
